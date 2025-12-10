@@ -17,16 +17,16 @@ jobs:
         strategy:
           matrix:
             nodejs_version: [18,19,20]
-            operating_system: [ubuntu-latest, window-latest]
+            operating_system: [ubuntu-latest, macos-latest]
             exclude:
               - nodejs_version: 18
-                operating_system: window-latest
+                operating_system: macos-latest
         runs-on: ${{matrix.operating_system}}
         steps:
         - name: Checkout Repository
           uses: actions/checkout@v6
 
-        - name: Setup NodeJS Version - $${{matrix.nodejs_version}}
+        - name: Setup NodeJS Version - ${{matrix.nodejs_version}}
           uses: actions/setup-node@v4
           with:
             node-version: $${{matrix.nodejs_version}}
