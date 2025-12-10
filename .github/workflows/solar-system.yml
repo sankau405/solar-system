@@ -16,10 +16,10 @@ jobs:
         name: Unit Testing
         strategy:
           matrix:
-            nodejs_version: [22,24,25]
+            nodejs_version: [18,19,20]
             operating_system: [ubuntu-latest, window-latest]
             exclude:
-              - nodejs_version: 22
+              - nodejs_version: 18
                 operating_system: window-latest
         runs-on: ${{matrix.operating_system}}
         steps:
